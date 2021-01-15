@@ -1,16 +1,22 @@
-import watchdog
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 
-import os
-import json
 import time
 
-print('a')
+print('Running')
+
+def writeDoc(name, text):
+    path = '/Users/ivanjtm/Desktop/Output/' + name
+    f = open(path, "a")
+    f.write(text)
+    f.close()
 
 class Handler (FileSystemEventHandler):
     def on_modified(self, event):
         data = open(inputFile).read().split('|')
+        writeDoc('doc0.txt', data[0])
+        writeDoc('doc1.txt', data[1])
+        writeDoc('doc2.txt', data[2])
         open(inputFile).close()
         print(data)
 
