@@ -26,7 +26,6 @@ def downloadPhoto(link):
 
 class Handler (FileSystemEventHandler):
     def on_modified(self, event):
-    
         data = open(inputFile).read().split('|')
         
         if data != ['']:
